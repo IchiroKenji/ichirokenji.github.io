@@ -1,0 +1,206 @@
+<div1 class="pesan">
+<form id="webhookForm">
+  <div class="card">
+<header>Beri pesan ke meja</header>
+<div>
+<hytam>Nama kamu</hytam>
+<div class="jarak1"></div>
+<input type="text" id="naman" placeholder="Contoh: Agus" required>
+</div>
+<div class="jarak"></div>
+<div>
+<hytam>Pesan</hytam>
+<div class="jarak1"></div>
+<input type="text" id="psnn" placeholder="yang rawr aku tandain IP nya" required>
+</div>
+<div class="jarak"></div>
+<button type="submit">submit</button>
+</div>
+</form>
+<center>
+  <a>ini bisa di spam.</a>
+</center>
+</div1>
+
+ <script>
+    document.getElementById('webhookForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const naman = document.getElementById('naman').value;
+      const psnn = document.getElementById('psnn').value;
+
+      const webhookURL = `https://trigger.macrodroid.com/17cc7598-691a-407e-a121-54c7b88a9dea/klik?naman=${encodeURIComponent(naman)}&psnn=${encodeURIComponent(psnn)}`;
+
+      fetch(webhookURL)
+        .then(response => {
+          if (response.ok) {
+            console.log('Webhook triggered successfully');
+          } else {
+            console.log('Failed to trigger webhook');
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+
+<!--
+Penjelasan gw
+Oiya, betewe <div> itu ga sepenuhnya wajib harus "div" ya. Bisa lu namain sendiri kaya contoh:
+<hytam>
+<dimashytam>
+<boti>
+Itu bebas. Tapi kadang
+
+<!--
+PENJELASAN FONT
+
+Untuk import font sendiri ini bakal terbatas karna kita sumbernya dari google font.
+
+Nah, gimana sih importnya? untuk sekarang (beginner) mending pake template ini dulu:
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NAMAFONTDISINI">
+
+Terus kalian pilih dari website fonts.google.com atau Google Fonts mana font yang kalian mau import.
+Kalo udah ketemu kalian salin linknya dan liat namanya di akhir link setelah tanda "/"
+
+Contoh:
+https://fonts.google.com/specimen/Roboto
+Berarti namanya "Roboto"
+
+https://fonts.google.com/specimen/Lato
+Berarti namanya "Lato"
+
+Abis itu dari template gw di baris ke 30, kalian ubah "NAMAFONTDISINI" jadi nama font yang udah kalian pilih tadi. Disini gw bakal ambil "Lato".
+
+Contoh:
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">.
+
+Abis itu font bisa digunakan dengan:
+(font-family: "Lato";)
+Dan itu harus sesuai besar kecilnya karena kebanyakan bahasa pemrograman itu case sensitive atau sensitif terhadap besar kecilnya tulisan.
+
+Panjang amat perasaan penjelasan font doang 😂
+-->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monsterrat">
+
+<!--
+Nah karna Acode gabisa preview dua file jadi css gabisa kita pisahin filenya. Nah terus gimana dong? Disitulah <style> menjadi penyelamat.
+-->
+
+<!--
+Mungkin lu dari bawah terus balik lagi keatas buat nanya apa sih perbedaannya style yang biasa (contoh:"hytam") dan yang ada titiknya (contoh:".card").
+Sebenernya gw sendiri belum sepenuhnya paham tapi kalo disimpulkan sendiri, yang bertitik itu sering dipake khusus buat yang <div class="#'> sedangkan yang ga bertitik itu buat yang <div> aja.
+Sekarang gausah nanya perbedaannya <div> sama <div class="#">. Pakenya sesuai mood juga ga masalah kok :)
+-->
+
+<style>
+
+a {
+  color: #6c7086;
+  font-family: "Rubik";
+  font-size: 10;
+  padding: 8px;
+}
+
+* {
+-webkit-tap-highlight-color: rgba(255, 255, 255, 0)!important;
+-webkit-focus-ring-color: rgba(255, 255, 255, 0)!important;
+outline: none !important;
+}
+
+.card {
+  background-color: #313244;
+  padding: 20px 20px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 50px #00000050;
+  
+}
+
+header {
+  font-family: "Arial";
+  font-size: 24;
+  font-weight: 500;
+  color: #cdd6f4;
+}
+
+div1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.jarak {
+  height: 20px;
+}
+
+.jarak1 {
+  height: 3px;
+}
+
+@keyframes rotate {
+	to {
+		--angle: 360deg;
+	}
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+button {
+  --angle: 0deg; /* jangan tanya soal efek pelanginya, gw copas soalnya ehhehehe */
+  background-color: #00000000; /* mengubah latar tombol menjadi transparan dengan menambah "00" dibelakang kode warna untuk memberikan nilai opasitas nol atau transparan */
+  height: 60px;
+  width: 300px;
+  border: solid; /* tipe border, disini gw pake "solid" biar pewarnaan bordernya rata */
+  border-color: green; /* ini gak relevan soalnya ketindih efek pelangi */
+  border-radius: 3px; /* radius ini gunanya buat ngebunderin atau tumpulin sisi sisi kotak */
+  border-width: 2px; /* ketebalan border */
+  border-image: conic-gradient(from var(--angle), #f38ba8, #f9e2af, #a6e3a1, #89dceb, #89b4fa, #cba6f7, #f38ba8) 1;
+	animation: 4s rotate linear infinite;
+	color: white;
+	font-family: "Rubik", bold;
+	font-weight: 600;
+	
+}
+  
+  hytam {
+    color: #a6adc8; /* warna teks */
+    font-family: "Rubik"; /* namanya harus sesuai yang diimport di baris 25 tadi */
+    font-size: 12;
+    font-weight: 300;
+  }
+  
+  body {
+    background-color: #1e1e2e;
+  }
+  
+  input {
+    border-radius: 2px;
+    height: 45px;
+    width: 300px;
+    text-align: center;
+    background-color: #181825;
+    display: block;
+    border: none;
+    color: #cdd6f4;
+  }
+  
+  input:focus {
+    border: solid;
+    border-color: #89b4fa;
+    outline: none;
+  }
+  
+  ::placeholder {
+    color: #585b70;
+    font-family: "Rubik";
+    font-weight: 300;
+  }
+  
+</style>
